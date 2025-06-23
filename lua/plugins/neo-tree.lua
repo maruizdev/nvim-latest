@@ -10,13 +10,13 @@ return {
         require("neo-tree").setup({
             window = {
                 position = "left",
-                width = 30,
+                width = 45,
                 mappings = {
                 },
             },
 
         })
-        vim.api.nvim_create_autocmd("BufEnter", {
+        --[[ vim.api.nvim_create_autocmd("BufEnter", {
             group = vim.api.nvim_create_augroup("CloseNeoTree", { clear = true }),
             callback = function()
                 local bufname = vim.api.nvim_buf_get_name(0)
@@ -25,7 +25,7 @@ return {
                     require("neo-tree.command").execute({ action = "close" })
                 end
             end,
-        })
+        }) ]]
     end,
 
 }
