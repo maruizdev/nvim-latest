@@ -174,13 +174,12 @@ return {
             mapping = cmp.mapping.preset.insert({
                 -- confirm completion item
                 ['<CR>'] = cmp.mapping.confirm({ select = false }),
-
                 -- scroll documentation window
                 ['<C-f>'] = cmp.mapping.scroll_docs(5),
                 ['<C-u>'] = cmp.mapping.scroll_docs(-5),
 
-                -- toggle completion menu
-                ['<C-e>'] = cmp.mapping(function(fallback)
+                -- toggle completion menu <C-e>
+                ['<C-space>'] = cmp.mapping(function(fallback)
                     if cmp.visible() then
                         cmp.abort()
                     else

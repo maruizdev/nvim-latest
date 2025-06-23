@@ -27,5 +27,26 @@ return {
         config = function()
             require("nvim-autopairs").setup {}
         end,
+    },
+    --[[ {
+        'akinsho/bufferline.nvim',
+        dependencies = {
+            'nvim-tree/nvim-web-devicons',
+            'famiu/bufdelete.nvim'
+        },
+        config = function()
+            require('bufferline').setup {}
+        end
+    }, ]]
+    {
+        'famiu/bufdelete.nvim'
+    },
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        config = function()
+            require("ibl").setup {
+            }
+        end
     }
 }

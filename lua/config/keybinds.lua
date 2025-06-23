@@ -1,18 +1,21 @@
--- luacheck: globals vim
--- vim.keymap.set("n", "<leader>e", ":Neotree toggle<CR>", { desc = "Toggle Neo-tree" })
--- vim.keymap.set("n", "<leader>fe", ":Neotree reveal<CR>", { desc = "Reveal current file in Neo-tree" })
+vim.g.mapleader = " "
 
---navigation
-vim.keymap.set("n", "<space>e", function()
+local opts = { noremap = true }
+--navigation Neotree
+vim.keymap.set("n", "<leader>e", function()
     vim.cmd("Neotree toggle")
 end)
 
-vim.keymap.set("n", "<space>fe", function()
+vim.keymap.set("n", "<leader>fe", function()
     vim.cmd("Neotree reveal")
 end)
 
+--Navigation bufferline
+--[[ vim.keymap.set('n', '<S-TAB>', ':bprevious<CR>', opts)
+vim.keymap.set('n', '<TAB>', ':bnext<CR>', opts) ]]
+vim.keymap.set('n', "<leader>q", ":Bdelete<CR>", { noremap = true, silent = true })
+
 -- KEYBINDS
-vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>cd", vim.cmd.Ex)
 
 --Move

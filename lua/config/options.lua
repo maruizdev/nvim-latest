@@ -6,8 +6,8 @@ local set = vim.opt
 set.number = true
 
 -- indentation and tabs
-set.tabstop = 4
-set.shiftwidth = 4
+set.tabstop = 2
+set.shiftwidth = 2
 set.autoindent = true
 set.expandtab = true
 
