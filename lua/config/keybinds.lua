@@ -11,9 +11,9 @@ vim.keymap.set("n", "<leader>fe", function()
 end)
 
 --Navigation bufferline
---[[ vim.keymap.set('n', '<S-TAB>', ':bprevious<CR>', opts)
-vim.keymap.set('n', '<TAB>', ':bnext<CR>', opts) ]]
-vim.keymap.set('n', "<leader>q", ":Bdelete<CR>", { noremap = true, silent = true })
+vim.keymap.set('n', '<S-TAB>', ':bprev<CR>', opts)
+vim.keymap.set('n', '<TAB>', ':bnext<CR>', opts)
+vim.keymap.set('n', "<leader>q", ":bdelete<CR>", { noremap = true, silent = true })
 
 -- KEYBINDS
 vim.keymap.set("n", "<leader>cd", vim.cmd.Ex)
