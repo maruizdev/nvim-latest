@@ -15,7 +15,6 @@ return {
                 },
             },
             event_handlers = {
-
                 {
                     event = "file_opened",
                     handler = function(file_path)
@@ -23,6 +22,14 @@ return {
                     end
                 },
 
+            },
+            default_component_configs = {
+                indent = {
+                    with_expanders = true, -- activa las flechas
+                    expander_collapsed = "", -- puedes personalizar estas flechas
+                    expander_expanded = "",
+                    expander_highlight = "NeoTreeExpander",
+                },
             }
 
         })

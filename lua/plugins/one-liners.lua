@@ -9,9 +9,6 @@ return {
         'kkoomen/vim-doge',
         build = ':call doge#install()'
     },
-    { -- Git plugin
-        'tpope/vim-fugitive',
-    },
     { -- Show historical versions of the file locally
         'mbbill/undotree',
     },

@@ -46,10 +46,12 @@ set.scrolloff = 8
 set.swapfile = false
 set.backup = false
 set.undodir = os.getenv("HOME") .. "/.vim/undodir"
-set.undofile = true
+-- set.undofile = true
 
 -- incremental search
 set.incsearch = true
 
 -- faster cursor hold
 set.updatetime = 50
+
+vim.cmd("colorscheme gruvbox-material")
