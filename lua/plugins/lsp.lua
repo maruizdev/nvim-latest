@@ -105,6 +105,7 @@ return {
                 "ts_ls",
                 "emmet_language_server",
                 "eslint",
+                "clangd",
             },
             handlers = {
                 -- this first function is the "default handler"

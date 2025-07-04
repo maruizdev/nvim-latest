@@ -16,7 +16,7 @@ return {
     {
         'sainnhe/gruvbox-material',
         config = function()
-            -- vim.cmd("colorscheme gruvbox-material")
+            vim.cmd("colorscheme gruvbox-material")
             vim.g.gruvbox_material_background = "hard"
             vim.g.lightline = {}
             -- enable_transparency()
@@ -26,7 +26,7 @@ return {
         "Mofiqul/vscode.nvim",
         name = 'vscode',
         config = function()
-            vim.cmd("colorscheme vscode")
+            -- vim.cmd("colorscheme vscode")
             vim.cmd('hi Directory guibg=NONE')
             vim.cmd('hi SignColumn guibg=NONE')
             -- enable_transparency()
