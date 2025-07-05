@@ -1,34 +1,24 @@
---[[ local function enable_transparency()
+local function enable_transparency()
     vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
     vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
-end ]]
+end
 return {
     {
         "folke/tokyonight.nvim",
         lazy = false,
         priority = 1000,
         config = function()
-            -- vim.cmd("colorscheme tokyonight")
-            -- enable_transparency()
+            vim.cmd("colorscheme tokyonight")
+            enable_transparency()
         end
     },
     {
         'sainnhe/gruvbox-material',
         config = function()
-            vim.cmd("colorscheme gruvbox-material")
+            -- vim.cmd("colorscheme gruvbox-material")
             vim.g.gruvbox_material_background = "hard"
             vim.g.lightline = {}
-            -- enable_transparency()
-        end
-    },
-    {
-        "Mofiqul/vscode.nvim",
-        name = 'vscode',
-        config = function()
-            -- vim.cmd("colorscheme vscode")
-            vim.cmd('hi Directory guibg=NONE')
-            vim.cmd('hi SignColumn guibg=NONE')
             -- enable_transparency()
         end
     },
