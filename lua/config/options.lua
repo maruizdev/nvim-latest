@@ -77,7 +77,8 @@ vim.keymap.set("n", "<F5>", function()
 
     local cmd = ""
     if ft == "c" then
-        cmd = string.format("gcc \"%s\" -o \"%s\" && \"%s\"", filepath, output, output)
+        -- cmd = string.format("gcc \"%s\" -o \"%s\" -lm && \"%s\"", filepath, output, output)
+        cmd = string.format("gcc \"%s\" -lm && ./a.out ", filepath)
     elseif ft == "cpp" then
         cmd = string.format("g++ \"%s\" -o \"%s\" && \"%s\"", filepath, output, output)
     elseif ft == "java" then

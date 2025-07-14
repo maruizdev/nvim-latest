@@ -76,3 +76,6 @@ vim.keymap.set("n", "<leader>u", vim.cmd.UndotreeToggle)
 vim.keymap.set("n", "<leader><leader>", function()
     vim.cmd("so")
 end)
+
+--aerial
+vim.keymap.set("n", "<leader>m", "<cmd>AerialToggle!<CR>")

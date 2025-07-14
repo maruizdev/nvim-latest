@@ -58,5 +58,15 @@ return {
                 vim.cmd("ToggleTerm direction=float")
             end)
         end
+    },
+    {
+        'stevearc/aerial.nvim',
+        opts = {},
+        -- Optional dependencies
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+            "nvim-tree/nvim-web-devicons"
+        },
     }
+
 }
