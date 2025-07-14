@@ -25,6 +25,12 @@ return {
         vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
         vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 
+        --[[ vim.keymap.set('n', '<leader>sm', function()
+            require('telescope.builtin').lsp_document_symbols({
+                symbols = { 'function', 'method' }
+            })
+        end, { desc = 'Símbolos del documento (métodos, funciones, etc.)' }) ]]
+
         -- Rip grep + Fzf
         vim.keymap.set('n', '<leader>fg', function()
             builtin.grep_string({ search = vim.fn.input("Grep > ") });

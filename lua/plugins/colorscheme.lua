@@ -18,7 +18,7 @@ return {
     {
         'sainnhe/gruvbox-material',
         config = function()
-            -- vim.cmd("colorscheme gruvbox-material")
+            vim.cmd("colorscheme gruvbox-material")
             vim.g.gruvbox_material_background = "hard"
             vim.g.lightline = {}
             -- enable_transparency()
@@ -28,7 +28,7 @@ return {
         'rebelot/kanagawa.nvim',
         config = function()
             require('kanagawa').setup({
-                vim.cmd("colorscheme kanagawa")
+                -- vim.cmd("colorscheme kanagawa")
             })
         end
     },

@@ -61,12 +61,55 @@ return {
     },
     {
         'stevearc/aerial.nvim',
-        opts = {},
         -- Optional dependencies
         dependencies = {
             "nvim-treesitter/nvim-treesitter",
             "nvim-tree/nvim-web-devicons"
         },
-    }
+        config = function()
+            require('aerial').setup({
+                icons = {
+                    -- Puedes personalizar iconos por tipo si quieres
+                    Function = '󰊕',
+                    Method = '󰆧',
+                    Class = '󰠱',
+                    Variable = '󰫧',
+                    Interface = '',
+                    Module = '',
+                    Namespace = '󰌗',
+                },
+                filter_kind = {
+                    "Function",
+                    "Method",
+                    "Constructor",
+                    "Interface",
+                    "Class",
+                    "Module",
+                },
+                show_guides = true,
+                layout = {
+                    max_width = { 40, 0.2 },
+                    min_width = 20,
+                    default_direction = "right",
+                },
+            })
+        end
+    },
+    {
+        "nvzone/typr",
+        dependencies = "nvzone/volt",
+        -- cmd = { "TyprStart", "TyprStats" },
+        config = function()
+            require("typr").setup({
+                -- Opciones disponibles:
+                -- words = <número de palabras>,
+                -- layout = "colemak" | "qwerty" | etc.
+                -- puedes personalizar según tus gustos
+            })
 
+            -- Mapear atajos rápidos
+            vim.keymap.set("n", "<leader>ty", "<cmd>Typr<CR>", { desc = "Iniciar prueba de typing" })
+            vim.keymap.set("n", "<leader>ts", "<cmd>TyprStats<CR>", { desc = "Ver estadísticas de typr" })
+        end
+    }
 }
