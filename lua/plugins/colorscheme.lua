@@ -11,6 +11,8 @@ return {
         config = function()
             -- vim.cmd("colorscheme tokyonight-moon")
             -- enable_transparency()
+            vim.cmd("colorscheme tokyonight")
+            enable_transparency()
         end
     },
     {
@@ -30,6 +32,7 @@ return {
             })
         end
     },
+
     {
         "nvim-lualine/lualine.nvim",
         dependencies = {
