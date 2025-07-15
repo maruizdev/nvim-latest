@@ -12,6 +12,7 @@ return {
                 position = "left",
                 width = 45,
                 mappings = {
+                    ["o"] = "open",
                 },
             },
             event_handlers = {
