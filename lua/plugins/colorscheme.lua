@@ -1,8 +1,8 @@
-local function enable_transparency()
+--[[ local function enable_transparency()
     vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
     vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
     vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
-end
+end ]]
 return {
     {
         "folke/tokyonight.nvim",
@@ -11,28 +11,29 @@ return {
         config = function()
             -- vim.cmd("colorscheme tokyonight-moon")
             -- enable_transparency()
-            vim.cmd("colorscheme tokyonight")
-            enable_transparency()
         end
     },
     {
         'sainnhe/gruvbox-material',
         config = function()
-            vim.cmd("colorscheme gruvbox-material")
+            -- vim.cmd("colorscheme gruvbox-material")
             vim.g.gruvbox_material_background = "hard"
             vim.g.lightline = {}
             -- enable_transparency()
         end
     },
     {
-        'rebelot/kanagawa.nvim',
+        'projekt0n/github-nvim-theme',
+        name = 'github-theme',
+        lazy = false,    -- make sure we load this during startup if it is your main colorscheme
+        priority = 1000, -- make sure to load this before all the other start plugins
         config = function()
-            require('kanagawa').setup({
-                -- vim.cmd("colorscheme kanagawa")
+            require('github-theme').setup({
             })
-        end
-    },
 
+            vim.cmd('colorscheme github_dark')
+        end,
+    },
     {
         "nvim-lualine/lualine.nvim",
         dependencies = {
