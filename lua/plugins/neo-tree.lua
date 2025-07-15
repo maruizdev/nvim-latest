@@ -12,15 +12,6 @@ return {
                 position = "left",
                 width = 45,
                 mappings = {
-                    ["o"] = "open",
-                    ["O"] = {
-                        "show_help",
-                        nowait = false,
-                        config = {
-                            title = "Order by",
-                            prefix_key = "O", -- Nota: cambia también el `prefix_key`
-                        }
-                    },
                 },
             },
             event_handlers = {
