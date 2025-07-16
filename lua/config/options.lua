@@ -54,6 +54,4 @@ set.incsearch = true
 -- faster cursor hold
 set.updatetime = 50
 
--- vim.cmd("colorscheme gruvbox-material")
 -- vim.cmd("colorscheme vscode")
--- compile gcc

@@ -1,5 +1,4 @@
 return {
-
     { -- Git plugin
         'tpope/vim-fugitive',
         cmd = { "G", "Git" },
@@ -36,27 +35,16 @@ return {
                     untracked    = { text = '┆' },
                 },
 
-                --[[ vim.keymap.set('n', '<leader>gi', function()
-                    require('gitsigns').blame_line({ full = false})
-                end),
-                { desc = 'Git Blame linea actuadl' } ]]
             })
         end
     },
     {
         --git diffview
-        "sindrets/diffview.nvim"
-
+        "sindrets/diffview.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim"
+        },
+        config = true
     },
-    --[[ {
-        'f-person/git-blame.nvim',
-        event = "VeryLazy",
-        config = function()
-            require('gitblame').setup ({
-
-            })
-        end
-
-    } ]]
 
 }
