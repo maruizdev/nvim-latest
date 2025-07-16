@@ -1,8 +1,3 @@
---[[ local function enable_transparency()
-    vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-    vim.api.nvim_set_hl(0, "LineNr", { bg = "none" })
-end ]]
 return {
     {
         'sainnhe/gruvbox-material',
@@ -10,7 +5,6 @@ return {
             -- vim.cmd("colorscheme gruvbox-material")
             vim.g.gruvbox_material_background = "hard"
             vim.g.lightline = {}
-            -- enable_transparency()
         end
     },
     {
