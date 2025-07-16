@@ -10,7 +10,7 @@ return {
         priority = 1000,
         config = function()
             vim.cmd("colorscheme tokyonight")
-            enable_transparency()
+            -- enable_transparency()
         end
     },
     {
