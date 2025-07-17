@@ -5,15 +5,6 @@
 end ]]
 return {
     {
-        "folke/tokyonight.nvim",
-        lazy = false,
-        priority = 1000,
-        config = function()
-            -- vim.cmd("colorscheme tokyonight-moon")
-            -- enable_transparency()
-        end
-    },
-    {
         'sainnhe/gruvbox-material',
         config = function()
             -- vim.cmd("colorscheme gruvbox-material")
@@ -21,18 +12,6 @@ return {
             vim.g.lightline = {}
             -- enable_transparency()
         end
-    },
-    {
-        'projekt0n/github-nvim-theme',
-        name = 'github-theme',
-        lazy = false,    -- make sure we load this during startup if it is your main colorscheme
-        priority = 1000, -- make sure to load this before all the other start plugins
-        config = function()
-            require('github-theme').setup({
-            })
-
-            vim.cmd('colorscheme github_dark')
-        end,
     },
     {
         "nvim-lualine/lualine.nvim",
