@@ -55,4 +55,3 @@ set.incsearch = true
 set.updatetime = 50
 
 -- vim.cmd("colorscheme vscode")
--- compile gcc

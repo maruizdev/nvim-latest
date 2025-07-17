@@ -106,6 +106,7 @@ return {
                 "emmet_language_server",
                 "eslint",
                 "clangd",
+                "pylsp"
             },
             handlers = {
                 -- this first function is the "default handler"

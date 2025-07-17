@@ -9,9 +9,6 @@ return {
         'kkoomen/vim-doge',
         build = ':call doge#install()'
     },
-    { -- Show historical versions of the file locally
-        'mbbill/undotree',
-    },
     { -- Show CSS Colors
         'brenoprata10/nvim-highlight-colors',
         config = function()
@@ -24,6 +21,16 @@ return {
         config = function()
             require("nvim-autopairs").setup {}
         end,
+    },
+    {
+        "nvim-lualine/lualine.nvim",
+        dependencies = {
+            "nvim-tree/nvim-web-devicons"
+        },
+        opts = {
+            theme = 'gruvbox-material'
+        }
+
     },
     {
         'akinsho/bufferline.nvim',
@@ -95,21 +102,4 @@ return {
             })
         end
     },
-    {
-        "nvzone/typr",
-        dependencies = "nvzone/volt",
-        -- cmd = { "TyprStart", "TyprStats" },
-        config = function()
-            require("typr").setup({
-                -- Opciones disponibles:
-                -- words = <número de palabras>,
-                -- layout = "colemak" | "qwerty" | etc.
-                -- puedes personalizar según tus gustos
-            })
-
-            -- Mapear atajos rápidos
-            vim.keymap.set("n", "<leader>ty", "<cmd>Typr<CR>", { desc = "Iniciar prueba de typing" })
-            vim.keymap.set("n", "<leader>ts", "<cmd>TyprStats<CR>", { desc = "Ver estadísticas de typr" })
-        end
-    }
 }
