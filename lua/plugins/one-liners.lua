@@ -115,5 +115,11 @@ return {
         config = function()
             require("rainbow-delimiters.setup")()
         end
+    },
+    {
+        "folke/zen-mode.nvim",
+        opts = {
+        }
     }
+
 }
