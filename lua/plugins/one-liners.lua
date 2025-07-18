@@ -102,4 +102,18 @@ return {
             })
         end
     },
+    {
+        "folke/todo-comments.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim"
+        },
+        opts = {
+        }
+    },
+    {
+        "HiPhish/rainbow-delimiters.nvim",
+        config = function()
+            require("rainbow-delimiters.setup")()
+        end
+    }
 }

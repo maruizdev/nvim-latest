@@ -1,5 +1,4 @@
 vim.g.mapleader = " "
-
 local opts = { noremap = true }
 --navigation Neotree
 vim.keymap.set("n", "<leader>e", function()
