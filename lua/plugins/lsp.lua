@@ -106,6 +106,8 @@ return {
                 "emmet_language_server",
                 "eslint",
                 "clangd",
+                "angularls",
+                "html"
             },
             handlers = {
                 -- this first function is the "default handler"
@@ -130,6 +132,25 @@ return {
                                 },
                             },
                         },
+                    })
+                end,
+                angularls = function()
+                    require('lspconfig').angularls.setup({
+                        cmd = {
+                            "node",
+                            vim.fn.getcwd() .. "/node_modules/@angular/language-server/index.js",
+                            "--ngProbeLocations",
+                            vim.fn.getcwd() .. "/node_modules",
+                            "--tsProbeLocations",
+                            vim.fn.getcwd() .. "/node_modules",
+                            "--stdio",
+                        },
+                        on_attach = function(client, bufnr)
+                            -- tu función on_attach si la tienes, o puedes copiar la de arriba
+                        end,
+                        capabilities = require('cmp_nvim_lsp').default_capabilities(),
+                        filetypes = { "typescript", "html", "typescriptreact" },
+                        root_dir = require("lspconfig.util").root_pattern("angular.json", "project.json", ".git"),
                     })
                 end,
             },

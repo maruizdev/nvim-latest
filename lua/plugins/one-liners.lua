@@ -36,10 +36,23 @@ return {
         'akinsho/bufferline.nvim',
         dependencies = {
             'nvim-tree/nvim-web-devicons',
-            -- 'famiu/bufdelete.nvim'
+            'famiu/bufdelete.nvim'
         },
         config = function()
-            require('bufferline').setup {}
+            require('bufferline').setup({
+                options = {
+                    offsets = {
+                        {
+                            -- filetype = "neo-tree",
+                            filetype = "NvimTree",
+                            text = "File Explorer", -- puedes cambiar esto
+                            highlight = "Directory",
+                            text_align = "center",  -- o "left"
+                            separator = true
+                        }
+                    }
+                }
+            })
         end
     },
     {

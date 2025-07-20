@@ -1,5 +1,5 @@
 return {
-    "nvim-neo-tree/neo-tree.nvim",
+    --[[ "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x", -- asegúrate de usar la rama correcta
     dependencies = {
         "nvim-lua/plenary.nvim",
@@ -10,7 +10,7 @@ return {
         require("neo-tree").setup({
             window = {
                 position = "left",
-                width = 45,
+                width = 30,
                 mappings = {
                 },
             },
@@ -18,7 +18,7 @@ return {
                 {
                     event = "file_opened",
                     handler = function(file_path)
-                        require("neo-tree.command").execute({ action = "close" })
+                        -- require("neo-tree.command").execute({ action = "close" })
                     end
                 },
 
@@ -33,6 +33,5 @@ return {
             }
 
         })
-    end,
-
+    end, ]]
 }
