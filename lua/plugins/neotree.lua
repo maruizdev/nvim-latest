@@ -1,5 +1,5 @@
 return {
-    --[[ "nvim-neo-tree/neo-tree.nvim",
+    "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x", -- asegúrate de usar la rama correcta
     dependencies = {
         "nvim-lua/plenary.nvim",
@@ -12,6 +12,14 @@ return {
                 position = "left",
                 width = 30,
                 mappings = {
+                    ["o"] = "open",
+                    ["oc"] = "noop",
+                    ["od"] = "noop",
+                    ["og"] = "noop",
+                    ["om"] = "noop",
+                    ["on"] = "noop",
+                    ["os"] = "noop",
+                    ["ot"] = "noop",
                 },
             },
             event_handlers = {
@@ -30,8 +38,8 @@ return {
                     expander_expanded = "",
                     expander_highlight = "NeoTreeExpander",
                 },
-            }
+            },
 
         })
-    end, ]]
+    end,
 }
