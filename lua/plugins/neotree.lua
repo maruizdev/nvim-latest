@@ -8,9 +8,11 @@ return {
     },
     config = function()
         require("neo-tree").setup({
+            close_if_last_window = true,
+            enable_git_status = true,
             window = {
                 position = "left",
-                width = 30,
+                width = 40,
                 mappings = {
                     ["o"] = "open",
                     ["oc"] = "noop",
@@ -26,7 +28,7 @@ return {
                 {
                     event = "file_opened",
                     handler = function(file_path)
-                        -- require("neo-tree.command").execute({ action = "close" })
+                        require("neo-tree.command").execute({ action = "close" })
                     end
                 },
 
@@ -39,7 +41,6 @@ return {
                     expander_highlight = "NeoTreeExpander",
                 },
             },
-
         })
     end,
 }
