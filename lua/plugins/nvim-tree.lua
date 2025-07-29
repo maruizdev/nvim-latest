@@ -1,5 +1,5 @@
 return {
-    "nvim-tree/nvim-tree.lua",
+    --[[ "nvim-tree/nvim-tree.lua",
     config = function()
         -- disable netrw at the very start of your init.lua
         vim.g.loaded_netrw = 1
@@ -25,8 +25,8 @@ return {
             api.config.mappings.default_on_attach(bufnr)
 
             -- custom mappings
-            -- vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent, opts('Up'))
-            -- vim.keymap.set('n', 't', api.node.open.tab, opts('Open'))
+            vim.keymap.set('n', '<C-t>', api.tree.change_root_to_parent, opts('Up'))
+            vim.keymap.set('n', 't', api.node.open.tab, opts('Open'))
             vim.keymap.set('n', 's', api.node.open.vertical, opts('Open'))
             vim.keymap.set('n', '<s-s>', api.node.open.horizontal, opts('Open'))
             vim.keymap.set('n', '?', api.tree.toggle_help, opts('Help'))
@@ -72,5 +72,5 @@ return {
                 },
             },
         })
-    end
+    end ]]
 }

@@ -1,5 +1,5 @@
 return {
-    --[[ "nvim-neo-tree/neo-tree.nvim",
+    "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x", -- asegúrate de usar la rama correcta
     dependencies = {
         "nvim-lua/plenary.nvim",
@@ -8,17 +8,27 @@ return {
     },
     config = function()
         require("neo-tree").setup({
+            close_if_last_window = true,
+            enable_git_status = true,
             window = {
                 position = "left",
-                width = 30,
+                width = 40,
                 mappings = {
+                    ["o"] = "open",
+                    ["oc"] = "noop",
+                    ["od"] = "noop",
+                    ["og"] = "noop",
+                    ["om"] = "noop",
+                    ["on"] = "noop",
+                    ["os"] = "noop",
+                    ["ot"] = "noop",
                 },
             },
             event_handlers = {
                 {
                     event = "file_opened",
                     handler = function(file_path)
-                        -- require("neo-tree.command").execute({ action = "close" })
+                        require("neo-tree.command").execute({ action = "close" })
                     end
                 },
 
@@ -30,8 +40,7 @@ return {
                     expander_expanded = "",
                     expander_highlight = "NeoTreeExpander",
                 },
-            }
-
+            },
         })
-    end, ]]
+    end,
 }
