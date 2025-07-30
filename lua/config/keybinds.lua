@@ -2,13 +2,13 @@ vim.g.mapleader = " "
 local opts = { noremap = true }
 --navigation Neotree
 vim.keymap.set("n", "<leader>e", function()
-    -- vim.cmd("NvimTreeToggle")
-    vim.cmd("Neotree toggle")
+    vim.cmd("NvimTreeToggle")
+    -- vim.cmd("Neotree toggle")
 end)
 
 vim.keymap.set("n", "<leader>fe", function()
-    -- vim.cmd("NvimTreeFindFile")
-    vim.cmd("Neotree reveal")
+    vim.cmd("NvimTreeFindFile")
+    -- vim.cmd("Neotree reveal")
 end)
 
 --Navigation bufferline
