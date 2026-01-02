@@ -4,7 +4,7 @@ return {
         config = function()
             vim.g.gruvbox_material_background = "hard"
             vim.g.lightline = {}
-            -- vim.cmd("colorscheme gruvbox-material")
+            vim.cmd("colorscheme gruvbox-material")
         end
     },
     {
@@ -15,7 +15,7 @@ return {
                 style = 'warmer'
             }
             -- Enable theme
-            require('onedark').load()
+            -- require('onedark').load()
         end
     }
 }
