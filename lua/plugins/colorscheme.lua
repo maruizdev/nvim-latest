@@ -4,7 +4,7 @@ return {
         config = function()
             vim.g.gruvbox_material_background = "hard"
             vim.g.lightline = {}
-            vim.cmd("colorscheme gruvbox-material")
+            -- vim.cmd("colorscheme gruvbox-material")
         end
     },
     {
@@ -16,6 +16,20 @@ return {
             }
             -- Enable theme
             -- require('onedark').load()
+        end
+    },
+    {
+        "catppuccin/nvim",
+        name = "catppuccin",
+        priority = 1000,
+        config = function()
+            -- vim.cmd.colorscheme "catppuccin-mocha"
+        end
+    },
+    {
+        "rebelot/kanagawa.nvim",
+        config = function()
+            vim.cmd("colorscheme kanagawa")
         end
     }
 }
