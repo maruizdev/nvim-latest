@@ -68,7 +68,18 @@ return {
         "akinsho/toggleterm.nvim",
         version = "*",
         config = function()
-            require("toggleterm").setup()
+            require("toggleterm").setup({
+
+                size = function(term)
+                    if term.direction == "horizontal" then
+                        return 15                   -- alto de la terminal horizontal en líneas
+                    elseif term.direction == "vertical" then
+                        return vim.o.columns * 0.25 -- 35% del ancho de la ventana para vertical
+                    end
+                end,
+                persist_size = false, -- <--- importante
+            })
+
             vim.keymap.set("n", "<leader>th", function()
                 vim.cmd("ToggleTerm direction=horizontal")
             end)
