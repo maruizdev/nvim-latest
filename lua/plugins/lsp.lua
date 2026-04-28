@@ -39,15 +39,17 @@ return {
         })
 
         -- Add borders to floating windows
-        vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
-            vim.lsp.handlers.hover,
-            { border = 'rounded' }
-        )
-        vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
-            vim.lsp.handlers.signature_help,
-            { border = 'rounded' }
-        )
+        vim.lsp.handlers["textDocument/hover"] = function(_, result, ctx, config)
+            config = config or {}
+            config.border = "rounded"
+            return vim.lsp.handlers.hover(_, result, ctx, config)
+        end
 
+        vim.lsp.handlers["textDocument/signatureHelp"] = function(_, result, ctx, config)
+            config = config or {}
+            config.border = "rounded"
+            return vim.lsp.handlers.signature_help(_, result, ctx, config)
+        end
         -- Configure error/warnings interface
         vim.diagnostic.config({
             virtual_text = true,
@@ -107,7 +109,8 @@ return {
                 "eslint",
                 "clangd",
                 "angularls",
-                "html"
+                "html",
+                "pyright"
             },
             handlers = {
                 -- this first function is the "default handler"
