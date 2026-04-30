@@ -1,7 +1,7 @@
 return {
     {
         "nvim-treesitter/nvim-treesitter",
-        branch="master",
+        -- branch = "master",
         build = ":TSUpdate",
         config = function()
             local configs = require("nvim-treesitter.configs")
@@ -14,7 +14,6 @@ return {
                 indent = { enable = true },
                 -- enable autotagging (w/ nvim-ts-autotag plugin)
                 -- autogtag = { enable = true },
-                require('nvim-ts-autotag').setup(),
                 -- ensure these language parsers are installed
                 ensure_installed = {
                     "json",
@@ -37,12 +36,13 @@ return {
                     "gitignore",
                     "astro",
                     "go",
-                    "dockerfile",
-                    "bash"
+                    "python"
                 },
                 -- auto install above language parsers
                 auto_install = false,
             })
+
+            -- require('nvim-ts-autotag').setup(),
         end
     }
 }

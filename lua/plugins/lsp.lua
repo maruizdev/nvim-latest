@@ -110,6 +110,7 @@ return {
                 "clangd",
                 "angularls",
                 "html",
+                "ruff",
                 "pyright"
             },
             handlers = {
@@ -156,6 +157,20 @@ return {
                         root_dir = require("lspconfig.util").root_pattern("angular.json", "project.json", ".git"),
                     })
                 end,
+                pyright = function()
+                    require('lspconfig').pyright.setup({
+                        settings = {
+                            python = {
+                                analysis = {
+                                    autoSearchPaths = true,
+                                    useLibraryCodeForTypes = true,
+                                    typeCheckingMode = "basic", -- O "strict" si eres valiente
+                                    diagnosticMode = "workspace",
+                                }
+                            }
+                        }
+                    })
+                end
             },
         })
 
