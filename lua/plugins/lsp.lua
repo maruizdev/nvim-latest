@@ -165,7 +165,6 @@ return {
                                     autoSearchPaths = true,
                                     useLibraryCodeForTypes = true,
                                     typeCheckingMode = "basic", -- O "strict" si eres valiente
-                                    diagnosticMode = "workspace",
                                 }
                             }
                         }
