@@ -47,7 +47,7 @@ return {
                             filetype = "NvimTree",
                             text = "File Explorer", -- puedes cambiar esto
                             highlight = "Directory",
-                            text_align = "center",  -- o "left"
+                            text_align = "center", -- o "left"
                             separator = true
                         }
                     },
@@ -72,7 +72,7 @@ return {
 
                 size = function(term)
                     if term.direction == "horizontal" then
-                        return 15                   -- alto de la terminal horizontal en líneas
+                        return 15       -- alto de la terminal horizontal en líneas
                     elseif term.direction == "vertical" then
                         return vim.o.columns * 0.25 -- 35% del ancho de la ventana para vertical
                     end
@@ -93,6 +93,7 @@ return {
     },
     {
         'stevearc/aerial.nvim',
+        -- branch = "nvim-0.11",
         -- Optional dependencies
         dependencies = {
             "nvim-treesitter/nvim-treesitter",

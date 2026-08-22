@@ -94,7 +94,13 @@ return {
                 vim.keymap.set('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', opts)
                 vim.keymap.set('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>', opts)
                 vim.keymap.set('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>', opts)
-                vim.keymap.set({ 'n', 'x' }, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
+                -- vim.keymap.set({ 'n', 'x' }, '<F3>', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', opts)
+                vim.keymap.set("n", "<F3>", function()
+                    require("conform").format({
+                        async = true,
+                        lsp_fallback = true,
+                    })
+                end)
                 vim.keymap.set('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>', opts)
             end,
         })
@@ -110,7 +116,6 @@ return {
                 "clangd",
                 "angularls",
                 "html",
-                "ruff",
                 "pyright"
             },
             handlers = {
@@ -153,7 +158,7 @@ return {
                             -- tu función on_attach si la tienes, o puedes copiar la de arriba
                         end,
                         capabilities = require('cmp_nvim_lsp').default_capabilities(),
-                        filetypes = { "typescript", "html", "typescriptreact" },
+                        filetypes = { "typescript", "html" },
                         root_dir = require("lspconfig.util").root_pattern("angular.json", "project.json", ".git"),
                     })
                 end,
