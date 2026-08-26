@@ -3,13 +3,28 @@ local opts = { noremap = true }
 --navigation Neotree
 vim.keymap.set("n", "<leader>e", function()
     vim.cmd("NvimTreeToggle")
-    -- vim.cmd("Neotree toggle")
 end)
 
 vim.keymap.set("n", "<leader>fe", function()
     vim.cmd("NvimTreeFindFile")
-    -- vim.cmd("Neotree reveal")
 end)
+
+--[[ local tree_api = require("nvim-tree.api")
+
+vim.keymap.set("n", "<leader>e", function()
+    tree_api.tree.toggle()
+end, {
+    desc = "Explorer",
+})
+
+vim.keymap.set("n", "<leader>fe", function()
+    tree_api.tree.find_file({
+        open = true,
+        focus = true,
+    })
+end, {
+    desc = "Mostrar archivo en Explorer",
+}) ]]
 
 --Navigation bufferline
 vim.keymap.set('n', '<S-TAB>', ':bprev<CR>', opts)
@@ -17,7 +32,6 @@ vim.keymap.set('n', '<TAB>', ':bnext<CR>', opts)
 vim.keymap.set('n', "<leader>q", ":Bdelete<CR>", { noremap = true, silent = true })
 
 -- KEYBINDS
-vim.keymap.set("n", "<leader>cd", vim.cmd.Ex)
 
 --Move
 vim.keymap.set("t", "<esc>", [[<C-\><C-n>]])

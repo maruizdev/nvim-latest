@@ -1,44 +1,61 @@
 return {
-    {
-        "nvim-treesitter/nvim-treesitter",
-        branch = "main",
-        lazy = false,
-        build = ":TSUpdate",
+    "nvim-treesitter/nvim-treesitter",
+    branch = "main",
+    lazy = false,
+    build = ":TSUpdate",
 
-        config = function()
-            require("nvim-treesitter").setup()
+    config = function()
+        require("nvim-treesitter").setup()
 
-            local parsers = {
-                "json",
-                "javascript",
-                "query",
-                "typescript",
-                "tsx",
-                "php",
-                "yaml",
-                "html",
-                "css",
-                "markdown",
-                "markdown_inline",
-                "bash",
-                "lua",
-                "vim",
-                "vimdoc",
-                "c",
-                "dockerfile",
-                "gitignore",
-                "astro",
-                "go",
-                "python",
-            }
+        local parsers = {
+            -- Angular
+            "typescript",
+            "tsx",
+            "html",
+            "css",
+            "scss",
+            "javascript",
+            "json",
 
-            require("nvim-treesitter").install(parsers)
+            -- Config
+            "yaml",
 
-            vim.api.nvim_create_autocmd("FileType", {
+            -- Shell
+            "bash",
+
+            -- Editor
+            "lua",
+            "vim",
+            "vimdoc",
+
+            -- Git
+            "gitignore",
+
+            -- Markdown
+            "markdown",
+            "markdown_inline",
+
+            -- Otros
+            "php",
+            "c",
+            "go",
+            "python",
+            "dockerfile",
+        }
+
+        require("nvim-treesitter")
+            .install(parsers)
+
+        vim.api.nvim_create_autocmd(
+            "FileType",
+            {
                 callback = function(args)
-                    pcall(vim.treesitter.start, args.buf)
+                    pcall(
+                        vim.treesitter.start,
+                        args.buf
+                    )
                 end,
-            })
-        end,
-    },
+            }
+        )
+    end
 }

@@ -1,55 +1,120 @@
 return {
-    'nvim-telescope/telescope.nvim',
+    "nvim-telescope/telescope.nvim",
+
     dependencies = {
-        'nvim-lua/plenary.nvim',
+        "nvim-lua/plenary.nvim",
     },
+
     config = function()
-        local actions = require('telescope.actions')
-        require('telescope').setup({
+        local telescope = require("telescope")
+        local actions = require("telescope.actions")
+        local builtin = require("telescope.builtin")
+
+        telescope.setup({
             defaults = {
                 mappings = {
                     i = {
-                        ["<C-k>"] = actions.move_selection_previous,                       -- move to prev result
-                        ["<C-j>"] = actions.move_selection_next,                           -- move to next result
-                        ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist, -- send selected to quickfixlist
-                    }
-                }
-            }
+                        ["<C-k>"] = actions.move_selection_previous,
+                        ["<C-j>"] = actions.move_selection_next,
+                        ["<C-q>"] = actions.send_selected_to_qflist
+                            + actions.open_qflist,
+                    },
+                },
+            },
         })
 
-        local builtin = require('telescope.builtin')
-        vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-        vim.keymap.set('n', '<leader>fg', builtin.git_files, {})
-        vim.keymap.set('n', '<leader>fo', builtin.oldfiles, {})
-        vim.keymap.set('n', '<leader>fq', builtin.quickfix, {})
-        vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
-        vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+        --------------------------------------------------
+        -- ARCHIVOS
+        --------------------------------------------------
 
-        --[[ vim.keymap.set('n', '<leader>sm', function()
-            require('telescope.builtin').lsp_document_symbols({
-                symbols = { 'function', 'method' }
+        -- Similar a Ctrl+P de VS Code
+        vim.keymap.set("n", "<leader>ff", builtin.find_files, {
+            desc = "Buscar archivos",
+        })
+
+        -- Solo archivos Git
+        vim.keymap.set("n", "<leader>fg", builtin.git_files, {
+            desc = "Buscar archivos Git",
+        })
+
+        -- Archivos abiertos recientemente
+        vim.keymap.set("n", "<leader>fo", builtin.oldfiles, {
+            desc = "Archivos recientes",
+        })
+
+        -- Buffers abiertos
+        vim.keymap.set("n", "<leader>fb", builtin.buffers, {
+            desc = "Buffers",
+        })
+
+        --------------------------------------------------
+        -- BÚSQUEDA GLOBAL
+        --------------------------------------------------
+
+        -- Similar a Ctrl+Shift+F de VS Code
+        vim.keymap.set("n", "<leader>fs", builtin.live_grep, {
+            desc = "Buscar texto en proyecto",
+        })
+
+        -- Buscar palabra bajo el cursor
+        vim.keymap.set("n", "<leader>fw", builtin.grep_string, {
+            desc = "Buscar palabra actual",
+        })
+
+        --------------------------------------------------
+        -- LSP / ANGULAR
+        --------------------------------------------------
+
+        vim.keymap.set("n", "<leader>fr", builtin.lsp_references, {
+            desc = "Referencias",
+        })
+
+        vim.keymap.set("n", "<leader>fd", builtin.lsp_definitions, {
+            desc = "Definiciones",
+        })
+
+        vim.keymap.set("n", "<leader>fi", builtin.lsp_implementations, {
+            desc = "Implementaciones",
+        })
+
+        vim.keymap.set("n", "<leader>fm", builtin.lsp_document_symbols, {
+            desc = "Símbolos del archivo",
+        })
+
+        vim.keymap.set("n", "<leader>fM", builtin.lsp_workspace_symbols, {
+            desc = "Símbolos del proyecto",
+        })
+
+        --------------------------------------------------
+        -- OTROS
+        --------------------------------------------------
+
+        vim.keymap.set("n", "<leader>fq", builtin.quickfix, {
+            desc = "Quickfix",
+        })
+
+        vim.keymap.set("n", "<leader>fh", builtin.help_tags, {
+            desc = "Ayuda",
+        })
+
+        -- Buscar referencias al componente/archivo actual
+        vim.keymap.set("n", "<leader>fc", function()
+            local filename = vim.fn.expand("%:t:r")
+
+            builtin.grep_string({
+                search = filename,
             })
-        end, { desc = 'Símbolos del documento (métodos, funciones, etc.)' }) ]]
+        end, {
+            desc = "Buscar referencias al archivo actual",
+        })
 
-        -- Rip grep + Fzf
-        vim.keymap.set('n', '<leader>fg', function()
-            builtin.grep_string({ search = vim.fn.input("Grep > ") });
-        end)
-
-        -- Find instance instance of current view being included
-        vim.keymap.set('n', '<leader>fc', function()
-            local filename_without_extension = vim.fn.expand('%:t:r')
-            builtin.grep_string({ search = filename_without_extension })
-        end, { desc = "Find current file: " })
-
-        -- Grep current string (for when gd doesn't work)
-        vim.keymap.set('n', '<leader>fs', function()
-            builtin.grep_string({})
-        end, { desc = "Find current string: " })
-
-        -- find files in vim config
-        vim.keymap.set('n', '<leader>fi', function()
-            builtin.find_files({ cwd = "~/.config/nvim/" });
-        end)
-    end
+        -- Buscar configuración de Neovim
+        vim.keymap.set("n", "<leader>fn", function()
+            builtin.find_files({
+                cwd = vim.fn.expand("~/.config/nvim"),
+            })
+        end, {
+            desc = "Buscar configuración Neovim",
+        })
+    end,
 }

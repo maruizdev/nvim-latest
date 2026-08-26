@@ -80,9 +80,10 @@ return {
                 persist_size = false, -- <--- importante
             })
 
-            vim.keymap.set("n", "<leader>th", function()
+            --[[ vim.keymap.set("n", "<leader>th", function()
                 vim.cmd("ToggleTerm direction=horizontal")
-            end)
+            end) ]]
+            vim.keymap.set("n", "<leader>th", "<cmd>ToggleTerm direction=horizontal<CR>")
             vim.keymap.set("n", "<leader>tv", function()
                 vim.cmd("ToggleTerm direction=vertical")
             end)
